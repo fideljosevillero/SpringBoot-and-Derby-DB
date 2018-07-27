@@ -23,7 +23,7 @@ import com.fideljose.models.ErrorJson;
 //import com.fideljose.service.PersonaService;
 
 @RestController
-//@Controller
+@RequestMapping("/api")
 public class PersonaController implements ErrorController {
 	
 	@Autowired
@@ -69,6 +69,16 @@ public class PersonaController implements ErrorController {
 	@GetMapping("/run-error")
 	public String malo() {
 		throw new RuntimeException();
+	}
+	
+	@GetMapping("/admin/{identificacion}")
+	public String anyMethod() {
+		return "I am Admin manager";
+	}
+	
+	@GetMapping("/any-user/{identificacion}")
+	public String anyMethod2() {
+		return "I am any user XD";
 	}
 	
 }
